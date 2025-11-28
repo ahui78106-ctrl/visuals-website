@@ -1,111 +1,255 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Visuals — 高端黑金企业官网</title>
-<style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Helvetica, Arial;
-    background: #000;
-    color: #fff;
-    overflow-x: hidden;
-}
-header {
-    padding: 60px;
-    text-align: center;
-    animation: fadeIn 2s ease;
-}
-h1 {
-    font-size: 60px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: #d4af37;
-    animation: glow 3s infinite;
-}
-@keyframes glow {
-    0% { text-shadow: 0 0 5px #d4af37; }
-    50% { text-shadow: 0 0 20px #d4af37; }
-    100% { text-shadow: 0 0 5px #d4af37; }
-}
-.section {
-    max-width: 1000px;
-    margin: auto;
-    padding: 30px;
-    line-height: 1.7;
-    font-size: 18px;
-    animation: slideUp 1.4s ease;
-}
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.service-item {
-    border-left: 3px solid #d4af37;
-    padding-left: 15px;
-    margin: 20px 0;
-    font-size: 20px;
-    animation: fadeIn 1.5s ease;
-}
-footer {
-    margin-top: 60px;
-    padding: 20px;
-    text-align: center;
-    color: #aaa;
-    animation: fadeIn 2s ease;
-}
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VISUALS — 高端视觉企业官网</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #020617;
+      color: #fff;
+      font-family: "Segoe UI", Helvetica, Arial;
+      overflow-x: hidden;
+    }
+
+    /* 背景全屏视频 */
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.4) blur(1px);
+    }
+
+    /* 星球 3D */
+    .planet-container {
+      position: absolute;
+      top: 120px;
+      right: 5%;
+      width: 350px;
+      height: 350px;
+      perspective: 1000px;
+    }
+
+    .planet {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #4cc9f0, #4361ee, #3a0ca3);
+      animation: rotatePlanet 18s linear infinite;
+      box-shadow: 0 0 40px #3a0ca3;
+      transform-style: preserve-3d;
+    }
+
+    @keyframes rotatePlanet {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+
+    /* 玻璃态导航 */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 60px;
+      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin-left: 35px;
+      font-size: 18px;
+      color: #fff;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+    nav a:hover { opacity: 1; }
+
+    /* Hero 部分 */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 80px;
+    }
+
+    .hero h2 {
+      font-size: 70px;
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(45deg, #4cc9f0, #4361ee, #7209b7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      margin-top: 25px;
+      font-size: 22px;
+      opacity: 0.85;
+      max-width: 600px;
+    }
+
+    /* 3D hover 卡片 */
+    .services {
+      padding: 120px 60px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 40px;
+      backdrop-filter: blur(15px);
+      transition: transform 0.25s ease, box-shadow 0.25s;
+      box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+      transform-style: preserve-3d;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) rotateX(10deg) rotateY(-10deg);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    }
+
+    .card h3 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: #4cc9f0;
+    }
+
+    .card p {
+      font-size: 17px;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    /* 动态统计数字 */
+    .stats {
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+
+    .stat {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      opacity: 0.7;
+    }
+
+    /* footer */
+    footer {
+      margin-top: 150px;
+      padding: 40px;
+      text-align: center;
+      opacity: 0.6;
+      font-size: 15px;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <img src="logo_placeholder.png" width="180" style="margin-bottom:20px;opacity:0.9;">
+  <!-- 背景视频，可换成你的链接 -->
+  <video class="bg-video" autoplay loop muted>
+    <source src="https://cdn.jsdelivr.net/gh/ahui78106-ctrl/cdn-files/nebula.mp4" type="video/mp4">
+  </video>
+
+  <header>
     <h1>VISUALS</h1>
-    <p style="font-size:20px;color:#ccc;">我们是一家专业的平面设计公司，我们拥有丰富的经验以及合作历史</p>
-</header>
+    <nav>
+      <a href="#">首页</a>
+      <a href="#services">服务</a>
+      <a href="#about">关于我们</a>
+      <a href="#contact">联系</a>
+    </nav>
+  </header>
 
-<h2 style="color:#d4af37;text-align:center;margin-top:60px;">关于我们 ABOUT US</h2>
-<div class="section">
-    <p>
-        Visuals 成立于 2013 年于香港，是一家国际化的私人平面设计公司。<br><br>
-        经过多年的发展，我们在 <strong>香港、纽约、英国</strong> 成立多家分公司，并将香港作为全球总部。
-        我们拥有丰富的行业经验与世界顶级设计师团队，与众多世界 500 强企业保持深度合作。<br><br>
-        在 <strong>亚洲、欧洲、北美洲</strong> 建立办公室，为全球客户提供优质、专业、高标准的视觉创意服务。<br><br>
-        我们的理念是：<strong>让视觉成为品牌的力量。</strong>
-    </p>
-</div>
+  <div class="planet-container">
+    <div class="planet"></div>
+  </div>
 
-<h2 style="color:#d4af37;text-align:center;margin-top:60px;">我们的服务 SERVICES</h2>
-<div class="section">
-    <div class="service-item">Logo 设计</div>
-    <div class="service-item">VI 视觉识别系统（视觉手册）</div>
-    <div class="service-item">品牌吉祥物 / IP 形象设计</div>
-    <div class="service-item">Banner 视觉设计</div>
-    <div class="service-item">杂志排版设计</div>
-    <div class="service-item">网页视觉设计（Web UI Design）</div>
-    <div class="service-item">展会主视觉 KV</div>
-    <div class="service-item">新媒体视觉（社媒设计）</div>
-</div>
+  <section class="hero">
+    <h2>高端视觉 · 企业级品牌设计</h2>
+    <p>我们打造世界级的企业视觉系统、3D 动效、深度品牌策略，为你的品牌注入灵魂与力量。</p>
+  </section>
 
-<h2 style="color:#d4af37;text-align:center;margin-top:60px;">联系我们 CONTACT</h2>
-<div class="section">
-    <p>
-        电话：<br>
-        邮箱：<br>
-        公司地址：<br>
-        Telegram：<br>
-        WhatsApp：<br>
-    </p>
-</div>
+  <section id="services" class="services">
+    <div class="card">
+      <h3>品牌 VI 体系</h3>
+      <p>为你构建完整视觉系统，确保品牌在任何场景下都保持震撼与一致性。</p>
+    </div>
+    <div class="card">
+      <h3>3D 动画 & 特效</h3>
+      <p>提供顶级三维动画、粒子系统、数字展示，用震撼视觉抓住你的客户。</p>
+    </div>
+    <div class="card">
+      <h3>高端网页开发</h3>
+      <p>打造媲美高盛、特斯拉级别的企业官网，速度 · 动画 · 品质 全面拉满。</p>
+    </div>
+  </section>
 
-<footer>
-    © 2025 Visuals. All Rights Reserved.
-</footer>
+  <div class="stats">
+    <div>
+      <div class="stat" data-target="268">0</div>
+      <div class="stat-label">完成项目</div>
+    </div>
+    <div>
+      <div class="stat" data-target="53">0</div>
+      <div class="stat-label">企业客户</div>
+    </div>
+    <div>
+      <div class="stat" data-target="12">0</div>
+      <div class="stat-label">行业荣誉奖项</div>
+    </div>
+  </div>
+
+  <footer>VISUALS © 2025 — 高端视觉设计集团</footer>
+
+  <script>
+    /* 动态数字统计 */
+    const counters = document.querySelectorAll('.stat');
+    counters.forEach(counter => {
+      const update = () => {
+        const target = +counter.getAttribute('data-target');
+        let current = +counter.innerText;
+        const increment = target / 80;
+        if (current < target) {
+          counter.innerText = Math.ceil(current + increment);
+          requestAnimationFrame(update);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      update();
+    });
+  </script>
 
 </body>
 </html>
