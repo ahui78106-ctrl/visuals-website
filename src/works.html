@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Works — VISUALS</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <header class="nav">
+    <div class="logo">VISUALS</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="glass">
+      <h2>Portfolio</h2>
+
+      <div class="filters">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="3d">3D</button>
+        <button class="filter-btn" data-cat="video">Video</button>
+        <button class="filter-btn" data-cat="ui">UI</button>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <div class="project" data-cats="3d,ui"
+          style="background-image:url('https://picsum.photos/900/700?random=11')">
+          <div class="overlay">3D Navigation Interface</div>
+        </div>
+
+        <div class="project" data-cats="video"
+          style="background-image:url('https://picsum.photos/900/700?random=12')">
+          <div class="overlay">Brand Motion Story</div>
+        </div>
+
+        <div class="project" data-cats="3d"
+          style="background-image:url('https://picsum.photos/900/700?random=13')">
+          <div class="overlay">Immersive Exhibition Space</div>
+        </div>
+
+        <div class="project" data-cats="ui"
+          style="background-image:url('https://picsum.photos/900/700?random=14')">
+          <div class="overlay">Holographic UI System</div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/works.js"></script>
+</body>
+</html>
